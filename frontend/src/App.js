@@ -162,31 +162,31 @@ function App() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="service-title">Full-Stack Development</h3>
+              <h3 className="service-title">Web Applications</h3>
               <p className="service-description">
-                Complete web applications using modern frameworks like React, Vue.js, Node.js, and Python.
+                Custom web applications built with Python (Django/FastAPI), Java (Spring), Node.js, Go (Gin/Echo), and Rust (Actix-web). From simple websites to complex enterprise solutions.
               </p>
             </div>
             <div className="service-card">
               <div className="service-icon bg-purple-100">
                 <svg className="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
                 </svg>
               </div>
-              <h3 className="service-title">Responsive Design</h3>
+              <h3 className="service-title">Static Websites</h3>
               <p className="service-description">
-                Mobile-first designs that look perfect on all devices with smooth animations and interactions.
+                Lightning-fast static websites using modern frameworks like Next.js, Gatsby, Hugo, and Astro. Perfect for business websites, portfolios, and blogs with SEO optimization.
               </p>
             </div>
             <div className="service-card">
               <div className="service-icon bg-green-100">
                 <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="service-title">Performance Optimization</h3>
+              <h3 className="service-title">Enterprise Solutions</h3>
               <p className="service-description">
-                Lightning-fast websites with optimized code, CDN integration, and advanced caching strategies.
+                Scalable enterprise applications with microservices architecture, API development, database design, and cloud integration for growing businesses.
               </p>
             </div>
           </div>
