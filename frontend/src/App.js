@@ -12,29 +12,6 @@ function App() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [isVisible, setIsVisible] = useState({});
-
-  // Intersection Observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({
-              ...prev,
-              [entry.target.id]: true
-            }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll('.animate-on-scroll');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -145,10 +122,8 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="animate-on-scroll section-padding bg-gray-50">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-          isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+      <section id="services" className="section-padding bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title">Our Services</h2>
             <p className="section-description">
@@ -230,10 +205,8 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="animate-on-scroll section-padding">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 delay-200 ${
-          isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+      <section id="features" className="section-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="section-title text-left">Why Choose Us?</h2>
@@ -289,10 +262,8 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="animate-on-scroll section-padding bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 delay-300 ${
-          isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+      <section id="contact" className="section-padding bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title">Get In Touch</h2>
             <p className="section-description">
