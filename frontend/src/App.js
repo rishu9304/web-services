@@ -208,34 +208,34 @@ function App() {
                 <div className="feature-item">
                   <div className="feature-icon bg-blue-100">
                     <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="feature-title">100% Custom Solutions</h4>
-                    <p className="feature-description">Tailored specifically to your business requirements</p>
+                    <h4 className="feature-title">Highly Responsive Design</h4>
+                    <p className="feature-description">Mobile-first approach ensuring perfect experience across all devices and screen sizes</p>
                   </div>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon bg-purple-100">
                     <svg className="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="feature-title">Fast Turnaround</h4>
-                    <p className="feature-description">Quick delivery without compromising on quality</p>
+                    <h4 className="feature-title">Cloud Deployment</h4>
+                    <p className="feature-description">Seamless deployment on AWS, Google Cloud, or Azure with automated CI/CD pipelines</p>
                   </div>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon bg-green-100">
                     <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 109.75 9.75A9.75 9.75 0 0012 2.25z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="feature-title">24/7 Support</h4>
-                    <p className="feature-description">Ongoing maintenance and support for your peace of mind</p>
+                    <h4 className="feature-title">Low-Cost Maintenance</h4>
+                    <p className="feature-description">Efficient architecture and ongoing support plans that minimize operational costs</p>
                   </div>
                 </div>
               </div>
