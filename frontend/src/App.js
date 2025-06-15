@@ -190,6 +190,42 @@ function App() {
               </p>
             </div>
           </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mt-8">
+            <div className="service-card">
+              <div className="service-icon bg-orange-100">
+                <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="service-title">API Development</h3>
+              <p className="service-description">
+                RESTful and GraphQL APIs built with robust authentication, rate limiting, and comprehensive documentation. Microservices architecture for scalability.
+              </p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon bg-pink-100">
+                <svg className="h-8 w-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4" />
+                </svg>
+              </div>
+              <h3 className="service-title">Database Solutions</h3>
+              <p className="service-description">
+                Database design and optimization for PostgreSQL, MySQL, MongoDB, and Redis. Data migration, performance tuning, and backup strategies.
+              </p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon bg-teal-100">
+                <svg className="h-8 w-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="service-title">Performance Optimization</h3>
+              <p className="service-description">
+                Website speed optimization, CDN integration, caching strategies, and performance monitoring to ensure lightning-fast user experiences.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
