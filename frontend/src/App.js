@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const SLACK_WEBHOOK_URL = process.env.REACT_APP_SLACK_WEBHOOK_URL;
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqgrnnl';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -25,26 +25,13 @@ function App() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    if (!SLACK_WEBHOOK_URL) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Slack webhook URL is not configured. Please set REACT_APP_SLACK_WEBHOOK_URL.'
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const slackPayload = {
-        text: `*New lead from WebCraft Pro*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Query:* ${formData.query}`
-      };
-
-      const response = await fetch(SLACK_WEBHOOK_URL, {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(slackPayload)
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
@@ -54,9 +41,10 @@ function App() {
         });
         setFormData({ name: '', email: '', contact: '', query: '' });
       } else {
+        const errorData = await response.json();
         setSubmitStatus({
           type: 'error',
-          message: 'Unable to send message right now. Please try again later.'
+          message: errorData.error || 'Unable to send message right now. Please try again later.'
         });
       }
     } catch (error) {

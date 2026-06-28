@@ -30,8 +30,6 @@ jobs:
 
       - name: Build React app
         working-directory: frontend
-        env:
-          REACT_APP_SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: npm run build
 
       - name: Add CNAME file
