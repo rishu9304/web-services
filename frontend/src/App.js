@@ -31,7 +31,10 @@ function App() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          message: `*New lead from theEasy Build*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Query:* ${formData.query}`
+        })
       });
 
       if (response.ok) {
@@ -65,7 +68,7 @@ function App() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                WebCraft Pro
+                theEasy Build
               </div>
             </div>
             <div className="hidden md:flex space-x-8">
@@ -106,7 +109,7 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
-                <a href="#services" className="btn-secondary">
+                <a href="#services" className="btn-white">
                   View Services
                 </a>
               </div>
@@ -422,14 +425,14 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              WebCraft Pro
+              theEasy Build
             </div>
             <p className="text-gray-400 mb-8">
               Crafting digital excellence, one project at a time.
             </p>
             <div className="border-t border-gray-800 pt-8">
               <p className="text-gray-400">
-                © 2025 WebCraft Pro. All rights reserved.
+                © 2025 theEasy Build. All rights reserved.
               </p>
             </div>
           </div>
