@@ -95,12 +95,11 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
             <div className="text-center">
               <h1 className="hero-title">
-                Crafting Digital Excellence
-                <span className="hero-subtitle">One Line of Code at a Time</span>
+                Custom Web Development & IT Services
+                <span className="hero-subtitle">For Startups and Growing Businesses</span>
               </h1>
               <p className="hero-description">
-                Transform your ideas into powerful web applications with our cutting-edge development services. 
-                We build responsive, scalable, and user-centric solutions that drive business growth.
+                We create fast, secure, and SEO-friendly websites, web applications, and digital solutions that help businesses attract clients, improve operations, and grow online.
               </p>
               <div className="hero-buttons">
                 <a href="#contact" className="btn-primary">
@@ -127,9 +126,9 @@ function App() {
       <section id="services" className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="section-title">Our Services</h2>
+            <h2 className="section-title">Web Development & IT Services</h2>
             <p className="section-description">
-              Comprehensive web development solutions tailored to your business needs
+              From custom business websites to scalable web applications, we deliver modern technology solutions tailored to your goals.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -213,7 +212,7 @@ function App() {
             <div>
               <h2 className="section-title text-left">Why Choose Us?</h2>
               <p className="section-description text-left mb-8">
-                We combine creativity with technical expertise to deliver exceptional web solutions
+                We combine creativity, reliable engineering, and SEO-focused strategy to deliver digital experiences that perform.
               </p>
               <div className="space-y-6">
                 <div className="feature-item">
