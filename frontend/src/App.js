@@ -288,7 +288,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email Us</h4>
-                    <p className="text-gray-600">agarahari110@gmail.com</p>
+                    <p className="text-gray-600">rishabhkr@theeasybuild.com </p>
                   </div>
                 </div>
                 
