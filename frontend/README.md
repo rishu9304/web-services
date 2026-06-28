@@ -14,6 +14,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+## Slack Webhook Setup
+
+To send contact form submissions directly to Slack, create a `.env` file in the `frontend` folder with:
+
+```
+REACT_APP_SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXXXX/YYYYY/ZZZZZ
+```
+
+> Warning: embedding a Slack webhook URL in a frontend app exposes it in the built bundle. For production security, use a backend proxy instead.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

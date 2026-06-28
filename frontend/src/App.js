@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const SLACK_WEBHOOK_URL = process.env.REACT_APP_SLACK_WEBHOOK_URL;
 
 function App() {
   const [formData, setFormData] = useState({
@@ -25,33 +25,44 @@ function App() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    if (!SLACK_WEBHOOK_URL) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Slack webhook URL is not configured. Please set REACT_APP_SLACK_WEBHOOK_URL.'
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch(`${BACKEND_URL}/api/contact`, {
+      const slackPayload = {
+        text: `*New lead from WebCraft Pro*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Query:* ${formData.query}`
+      };
+
+      const response = await fetch(SLACK_WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(slackPayload)
       });
-
-      const data = await response.json();
 
       if (response.ok) {
         setSubmitStatus({
           type: 'success',
-          message: data.message
+          message: 'Your message was sent successfully. We will reach out soon.'
         });
         setFormData({ name: '', email: '', contact: '', query: '' });
       } else {
         setSubmitStatus({
           type: 'error',
-          message: data.detail || 'Something went wrong. Please try again.'
+          message: 'Unable to send message right now. Please try again later.'
         });
       }
     } catch (error) {
       setSubmitStatus({
         type: 'error',
-        message: 'Failed to submit form. Please check your connection and try again.'
+        message: 'Failed to send message. Please check your network connection and try again.'
       });
     } finally {
       setIsSubmitting(false);
