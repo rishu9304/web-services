@@ -222,7 +222,7 @@ const faqs = [
   {
     question: 'How much does a website cost?',
     answer:
-      'Cost depends on pages, design complexity, content, features, integrations, and timeline. We start with a discovery call and provide a clear estimate before work begins.'
+      'Every project is unique. After understanding your goals and requirements, we provide a detailed proposal with transparent pricing, milestones, and timelines.'
   },
   {
     question: 'How long does development take?',
@@ -243,6 +243,16 @@ const faqs = [
     question: 'Can you sign an NDA?',
     answer:
       'Yes. If your idea, product, or business process is confidential, we can discuss NDA requirements before starting detailed discovery.'
+  },
+  {
+    question: 'Do I own the source code?',
+    answer:
+      'Yes. Ownership and handover expectations are clarified in the proposal. Our goal is to make sure you can maintain and grow the product after launch.'
+  },
+  {
+    question: 'Can you work with international clients?',
+    answer:
+      'Yes. We can work remotely with businesses across locations using clear milestones, written communication, scheduled calls, and transparent delivery updates.'
   },
   {
     question: 'What technologies do you use?',
@@ -345,6 +355,9 @@ function App() {
               <p className="hero-description">
                 We help startups and businesses build websites, web applications, and custom software with experienced engineers, clear communication, transparent milestones, and dependable delivery from idea to launch.
               </p>
+              <p className="brand-statement">
+                The Easy Build simplifies software development by combining experienced engineering, transparent communication, and reliable delivery.
+              </p>
 
               <div className="hero-buttons">
                 <a href="#contact" className="btn-primary">
@@ -433,7 +446,7 @@ function App() {
               <p className="eyebrow dark">Why choose The Easy Build?</p>
               <h2 className="section-title text-left">Reliable software delivery with clarity from start to finish.</h2>
               <p className="section-description text-left">
-                Prospects want to know why they should trust you. Our answer is simple: we focus on reliable software, clear communication, practical pricing, and long-term value instead of vague promises.
+                We act like a consulting partner, not just a development vendor. Our focus is helping your business succeed with the right digital solution, clear decisions, and dependable execution.
               </p>
             </div>
 
@@ -517,7 +530,7 @@ function App() {
               <p className="eyebrow dark">Meet the founder</p>
               <h2 className="section-title text-left">Built from real software delivery experience.</h2>
               <p className="section-description text-left">
-                The Easy Build was started with a simple belief: building software should be easier for business owners. The goal is to bring enterprise and product-engineering discipline into a clear, cost-effective, and approachable service for startups and growing businesses.
+                The Easy Build was started with a simple belief: building software should be easier for business owners. The goal is to bring enterprise and product-engineering discipline into a clear, cost-effective, and approachable consulting partner for startups and growing businesses.
               </p>
             </div>
 
@@ -608,7 +621,7 @@ function App() {
               <div className="contact-panel">
                 <h3>Building software should not feel confusing.</h3>
                 <p>
-                  Use this form for websites, custom software, e-commerce, automation, maintenance, cloud deployment, or technical consulting.
+                  Use this form for websites, custom software, e-commerce, automation, maintenance, cloud deployment, or technical consulting. We will help clarify the right next step before you commit to a build.
                 </p>
 
                 <div className="contact-info-list">
