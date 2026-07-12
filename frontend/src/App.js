@@ -9,42 +9,48 @@ const services = [
     description:
       'Product-grade SaaS platforms, internal tools, dashboards, and business applications built for real workflows, clean ownership, and long-term maintainability.',
     points: ['SaaS MVPs', 'Admin portals', 'Workflow automation'],
-    accent: 'bg-blue-100 text-blue-700'
+    accent: 'bg-blue-100 text-blue-700',
+    href: '/custom-software-development.html'
   },
   {
     title: 'Modern Website Development',
     description:
       'Fast, responsive, SEO-ready websites and web applications that communicate trust, load quickly, and turn visitors into qualified leads.',
     points: ['Business websites', 'Landing pages', 'SEO foundations'],
-    accent: 'bg-indigo-100 text-indigo-700'
+    accent: 'bg-indigo-100 text-indigo-700',
+    href: '/website-design-development.html'
   },
   {
     title: 'Backend & API Engineering',
     description:
       'Reliable backend systems, integrations, APIs, event-driven services, and database-backed platforms using the technology stack that best fits your product.',
     points: ['API platforms', 'Integrations', 'Scalable services'],
-    accent: 'bg-cyan-100 text-cyan-700'
+    accent: 'bg-cyan-100 text-cyan-700',
+    href: '/api-development.html'
   },
   {
     title: 'Cloud Infrastructure Consulting',
     description:
       'Cloud architecture, deployment pipelines, containerized services, monitoring, scaling, and cost-conscious infrastructure across AWS or any cloud platform your product needs.',
     points: ['AWS consulting', 'Any cloud infra', 'Monitoring setup'],
-    accent: 'bg-emerald-100 text-emerald-700'
+    accent: 'bg-emerald-100 text-emerald-700',
+    href: '/cloud-infrastructure-consulting.html'
   },
   {
     title: 'Architecture Consulting',
     description:
       'Technical guidance for stack selection, architecture review, cloud readiness, performance, security basics, and migration planning.',
     points: ['Tech stack review', 'System design', 'Cloud strategy'],
-    accent: 'bg-purple-100 text-purple-700'
+    accent: 'bg-purple-100 text-purple-700',
+    href: '/technical-consulting.html'
   },
   {
     title: 'Performance & Reliability',
     description:
       'Improve slow products, unstable systems, and expensive cloud setups with profiling, caching, database tuning, and operational best practices.',
     points: ['Speed audits', 'Cost optimization', 'Reliability fixes'],
-    accent: 'bg-orange-100 text-orange-700'
+    accent: 'bg-orange-100 text-orange-700',
+    href: '/cloud-infrastructure-consulting.html'
   }
 ];
 
@@ -298,6 +304,10 @@ function App() {
                       <li key={point}>{point}</li>
                     ))}
                   </ul>
+                  <a className="service-link" href={service.href}>
+                    Learn more
+                    <span aria-hidden="true">-&gt;</span>
+                  </a>
                 </article>
               ))}
             </div>
