@@ -5,137 +5,249 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqgrnnl';
 
 const services = [
   {
-    title: 'Custom Software Development',
+    title: 'Business Websites',
     description:
-      'Product-grade SaaS platforms, internal tools, dashboards, and business applications built for real workflows, clean ownership, and long-term maintainability.',
-    points: ['SaaS MVPs', 'Admin portals', 'Workflow automation'],
+      'Professional, mobile-friendly websites that clearly explain your services, build trust, and help customers contact you.',
+    points: ['Service pages', 'Lead capture', 'SEO foundations'],
     accent: 'bg-blue-100 text-blue-700',
-    href: '/custom-software-development.html'
+    href: '/website-design-development.html'
   },
   {
-    title: 'Modern Website Development',
+    title: 'E-commerce Development',
     description:
-      'Fast, responsive, SEO-ready websites and web applications that communicate trust, load quickly, and turn visitors into qualified leads.',
-    points: ['Business websites', 'Landing pages', 'SEO foundations'],
+      'Online stores and product catalogs designed for smooth browsing, secure checkout flows, and easier business management.',
+    points: ['Storefronts', 'Payments', 'Admin workflows'],
     accent: 'bg-indigo-100 text-indigo-700',
     href: '/website-design-development.html'
   },
   {
-    title: 'Backend & API Engineering',
+    title: 'Custom Web Applications',
     description:
-      'Reliable backend systems, integrations, APIs, event-driven services, and database-backed platforms using the technology stack that best fits your product.',
-    points: ['API platforms', 'Integrations', 'Scalable services'],
+      'Dashboards, portals, SaaS MVPs, internal tools, and business systems built around your workflows and users.',
+    points: ['SaaS MVPs', 'Portals', 'Dashboards'],
     accent: 'bg-cyan-100 text-cyan-700',
+    href: '/custom-software-development.html'
+  },
+  {
+    title: 'Backend API Development',
+    description:
+      'Reliable APIs, integrations, databases, and backend systems that connect your product, team, and business operations.',
+    points: ['APIs', 'Integrations', 'Databases'],
+    accent: 'bg-emerald-100 text-emerald-700',
     href: '/api-development.html'
   },
   {
-    title: 'Cloud Infrastructure Consulting',
+    title: 'AI & Automation',
     description:
-      'Cloud architecture, deployment pipelines, containerized services, monitoring, scaling, and cost-conscious infrastructure across AWS or any cloud platform your product needs.',
-    points: ['AWS consulting', 'Any cloud infra', 'Monitoring setup'],
-    accent: 'bg-emerald-100 text-emerald-700',
-    href: '/cloud-infrastructure-consulting.html'
-  },
-  {
-    title: 'Architecture Consulting',
-    description:
-      'Technical guidance for stack selection, architecture review, cloud readiness, performance, security basics, and migration planning.',
-    points: ['Tech stack review', 'System design', 'Cloud strategy'],
+      'Practical automation for repetitive tasks, internal workflows, reporting, customer support, and business operations.',
+    points: ['Workflow automation', 'AI tools', 'Reporting'],
     accent: 'bg-purple-100 text-purple-700',
     href: '/technical-consulting.html'
   },
   {
-    title: 'Performance & Reliability',
+    title: 'Website Maintenance',
     description:
-      'Improve slow products, unstable systems, and expensive cloud setups with profiling, caching, database tuning, and operational best practices.',
-    points: ['Speed audits', 'Cost optimization', 'Reliability fixes'],
+      'Ongoing updates, fixes, monitoring, content changes, backups, and support after your website or software goes live.',
+    points: ['Bug fixes', 'Updates', 'Support'],
+    accent: 'bg-pink-100 text-pink-700',
+    href: '/technical-consulting.html'
+  },
+  {
+    title: 'Performance Optimization',
+    description:
+      'Improve slow websites and applications with speed audits, caching, technical fixes, and better user experience.',
+    points: ['Speed audits', 'SEO readiness', 'Reliability fixes'],
     accent: 'bg-orange-100 text-orange-700',
+    href: '/cloud-infrastructure-consulting.html'
+  },
+  {
+    title: 'Cloud Deployment',
+    description:
+      'Launch and operate products on AWS or the right cloud infrastructure with deployment, monitoring, and scaling basics.',
+    points: ['AWS consulting', 'Cloud setup', 'Monitoring'],
+    accent: 'bg-teal-100 text-teal-700',
     href: '/cloud-infrastructure-consulting.html'
   }
 ];
 
 const capabilities = [
-  'Custom Software',
+  'Business Websites',
+  'E-commerce',
   'Website Design',
   'Web Applications',
   'APIs',
-  'Backend Systems',
-  'Cloud Infrastructure',
+  'AI & Automation',
+  'Maintenance',
   'AWS Consulting',
-  'DevOps',
-  'Databases',
-  'Integrations',
-  'MVPs',
-  'Technical Consulting'
+  'Cloud Deployment'
 ];
 
 const proofPoints = [
   {
-    value: 'Product mindset',
-    label: 'Engineers with product-company delivery experience'
+    value: 'Experienced engineers',
+    label: 'A flexible team across multiple technologies and product needs'
   },
   {
-    value: 'Flexible stack',
-    label: 'We choose technology around your product, team, budget, and future roadmap'
+    value: 'Clear milestones',
+    label: 'Transparent communication, scope, estimates, and delivery checkpoints'
   },
   {
-    value: 'End-to-end',
-    label: 'Architecture, build, launch, cloud, and support'
+    value: 'Long-term support',
+    label: 'Launch help, maintenance, improvements, and support after delivery'
   }
+];
+
+const whyChoose = [
+  'Experienced engineers across multiple technologies',
+  'Transparent communication from start to finish',
+  'Cost-effective without compromising quality',
+  'Scalable team based on project needs',
+  'Long-term support after launch'
 ];
 
 const processSteps = [
   {
-    title: 'Discover',
+    title: 'Discovery Call',
     description:
-      'We map your business goal, user flows, data needs, integrations, and launch constraints before writing code.'
+      'We understand your business, goals, users, timeline, budget, and what success should look like.'
   },
   {
-    title: 'Architect',
+    title: 'Requirement Analysis',
     description:
-      'We choose the right technology approach, define the system boundaries, plan cloud infrastructure, and reduce delivery risk early.'
+      'We turn the idea into clear features, priorities, workflows, technical needs, and acceptance criteria.'
   },
   {
-    title: 'Build',
+    title: 'Proposal & Timeline',
     description:
-      'We ship clean, maintainable features with pragmatic reviews, reusable components, and production-aware engineering.'
+      'You get a transparent plan with scope, milestones, delivery timeline, and estimated investment.'
   },
   {
-    title: 'Launch & Improve',
+    title: 'Design & Development',
     description:
-      'We deploy, monitor, document, hand over, and continue improving performance, reliability, and conversion.'
+      'We design and build the product with regular updates, reviews, and visible progress.'
+  },
+  {
+    title: 'Testing & Quality Assurance',
+    description:
+      'We test important flows, responsiveness, performance, edge cases, and production readiness before launch.'
+  },
+  {
+    title: 'Launch',
+    description:
+      'We deploy the website or software, configure the basics, and make sure the handover is clear.'
+  },
+  {
+    title: 'Ongoing Support',
+    description:
+      'We stay available for fixes, improvements, maintenance, and new feature development after launch.'
   }
 ];
 
-const consultingAreas = [
-  'MVP scope and technical roadmap',
-  'AWS or cloud architecture and deployment strategy',
-  'Backend architecture review',
-  'API and integration planning',
-  'Performance, database, and cloud cost review',
-  'Product engineering process improvements'
+const industries = [
+  'Healthcare',
+  'Education',
+  'Restaurants',
+  'Retail',
+  'Real Estate',
+  'Manufacturing',
+  'Startups',
+  'Professional Services'
+];
+
+const clientReasons = [
+  'Clear communication',
+  'Fixed milestones',
+  'Secure development practices',
+  'Modern technologies',
+  'Responsive support',
+  'Focus on long-term relationships'
+];
+
+const featuredProjects = [
+  {
+    title: 'Business Website',
+    description:
+      'A professional service website with clear positioning, service pages, contact flow, and SEO foundation.'
+  },
+  {
+    title: 'E-commerce Store',
+    description:
+      'A product storefront with catalog, checkout planning, admin workflows, and customer-focused design.'
+  },
+  {
+    title: 'Inventory Management System',
+    description:
+      'A dashboard for tracking stock, updates, reports, alerts, and operational visibility.'
+  },
+  {
+    title: 'CRM',
+    description:
+      'A customer management tool for leads, follow-ups, status tracking, and internal team workflows.'
+  },
+  {
+    title: 'AI Automation Tool',
+    description:
+      'A workflow assistant for reducing manual tasks, generating reports, and improving response speed.'
+  }
+];
+
+const technicalTrust = [
+  {
+    title: 'Fast and scalable backend systems',
+    description: 'So your product can support real users and business growth.'
+  },
+  {
+    title: 'Secure cloud deployments',
+    description: 'So your website or software is easier to launch, monitor, and maintain.'
+  },
+  {
+    title: 'Mobile-friendly websites',
+    description: 'So customers can browse and contact you easily from any device.'
+  },
+  {
+    title: 'SEO-ready development',
+    description: 'So Google can understand and index your pages more effectively.'
+  },
+  {
+    title: 'Modern UI/UX',
+    description: 'So your product feels trustworthy, clear, and easy to use.'
+  },
+  {
+    title: 'Reliable APIs',
+    description: 'So systems, apps, and business tools can communicate cleanly.'
+  }
 ];
 
 const faqs = [
   {
-    question: 'What kind of clients are the best fit?',
+    question: 'How much does a website cost?',
     answer:
-      'Startups, founders, small teams, and growing businesses that need high-quality websites, web applications, backend systems, cloud infrastructure, or technical consulting.'
+      'Cost depends on pages, design complexity, content, features, integrations, and timeline. We start with a discovery call and provide a clear estimate before work begins.'
   },
   {
-    question: 'Do you only build websites?',
+    question: 'How long does development take?',
     answer:
-      'No. Websites are one offering, but the core focus is high-quality software: custom platforms, APIs, backend services, infrastructure, internal tools, and product consulting.'
+      'A simple business website can take a few weeks, while custom software or web applications depend on scope. We break work into milestones so progress stays visible.'
   },
   {
-    question: 'Which technologies do you work with?',
+    question: 'Do you provide support after launch?',
     answer:
-      'We are technology-flexible. We can work with the stack your product needs or advise on the best stack based on performance, budget, hiring, maintenance, and cloud requirements.'
+      'Yes. We can help with fixes, maintenance, updates, monitoring, performance improvements, and new features after launch.'
   },
   {
-    question: 'Can you help before development starts?',
+    question: 'Can you improve an existing website?',
     answer:
-      'Yes. We can help with discovery, architecture, cloud planning, scope definition, MVP roadmap, performance review, and technical decision-making.'
+      'Yes. We can review your existing website, improve messaging, redesign pages, fix performance issues, add SEO foundations, or rebuild it if needed.'
+  },
+  {
+    question: 'Can you sign an NDA?',
+    answer:
+      'Yes. If your idea, product, or business process is confidential, we can discuss NDA requirements before starting detailed discovery.'
+  },
+  {
+    question: 'What technologies do you use?',
+    answer:
+      'We are technology-flexible. We can work with the stack your product needs or help choose the right approach based on budget, performance, maintenance, and future growth.'
   }
 ];
 
@@ -169,7 +281,7 @@ function App() {
         },
         body: JSON.stringify({
           ...formData,
-          message: `*New lead from theEasy Build*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Project:* ${formData.query}`
+          message: `*New lead from The Easy Build*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Project:* ${formData.query}`
         })
       });
 
@@ -200,14 +312,15 @@ function App() {
     <div className="App">
       <nav className="site-nav">
         <div className="container nav-inner">
-          <a href="#home" className="brand" aria-label="theEasy Build home">
-            theEasy Build
+          <a href="#home" className="brand" aria-label="The Easy Build home">
+            The Easy Build
           </a>
           <div className="nav-links">
             <a href="#services" className="nav-link">Services</a>
-            <a href="#approach" className="nav-link">Approach</a>
-            <a href="#consulting" className="nav-link">Consulting</a>
-            <a href="#contact" className="nav-link nav-cta">Free Consultation</a>
+            <a href="#why-choose" className="nav-link">Why Us</a>
+            <a href="#process" className="nav-link">Process</a>
+            <a href="#founder" className="nav-link">Founder</a>
+            <a href="#contact" className="nav-link nav-cta">Get a Quote</a>
           </div>
         </div>
       </nav>
@@ -225,21 +338,21 @@ function App() {
 
           <div className="container hero-content">
             <div className="hero-copy">
-              <p className="eyebrow">Product-company engineers for modern software delivery</p>
+              <p className="eyebrow">Building software should not be complicated</p>
               <h1 className="hero-title">
-                Ship high-quality software, websites, and cloud infrastructure faster.
+                Software Development Made Easy
               </h1>
               <p className="hero-description">
-                We help startups and growing businesses design, build, and launch reliable products using the right technology for the job. From product websites and custom software to backend systems, AWS consulting, and cloud infrastructure, we bring a product engineering mindset to every engagement.
+                We help startups and businesses build websites, web applications, and custom software with experienced engineers, clear communication, transparent milestones, and dependable delivery from idea to launch.
               </p>
 
               <div className="hero-buttons">
                 <a href="#contact" className="btn-primary">
-                  Book a Free Consultation
+                  Get Free Consultation
                   <span aria-hidden="true">-&gt;</span>
                 </a>
-                <a href="#services" className="btn-white">
-                  Explore Services
+                <a href="#contact" className="btn-white">
+                  Get a Quote
                 </a>
               </div>
 
@@ -251,26 +364,26 @@ function App() {
             </div>
 
             <div className="hero-panel" aria-label="Service highlights">
-              <div className="panel-label">What we help you ship</div>
+              <div className="panel-label">The Easy Build promise</div>
               <div className="panel-list">
                 <div>
-                  <strong>Websites that convert</strong>
-                  <span>Modern, fast, SEO-ready business sites.</span>
+                  <strong>Experienced engineers</strong>
+                  <span>We connect your project with the right engineering capability for the work.</span>
                 </div>
                 <div>
-                  <strong>Custom software products</strong>
-                  <span>MVPs, dashboards, portals, and internal tools.</span>
+                  <strong>Transparent delivery</strong>
+                  <span>Clear scope, milestones, updates, and estimates before and during the build.</span>
                 </div>
                 <div>
-                  <strong>Cloud-native backends</strong>
-                  <span>APIs, services, databases, CI/CD, AWS, and cloud infrastructure.</span>
+                  <strong>Quality with affordability</strong>
+                  <span>Cost-effective delivery without sacrificing reliability, security, or long-term value.</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="proof-strip" aria-label="Why clients choose theEasy Build">
+        <section className="proof-strip" aria-label="Why clients choose The Easy Build">
           <div className="container proof-grid">
             {proofPoints.map((item) => (
               <div className="proof-item" key={item.value}>
@@ -285,9 +398,9 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow dark">Services</p>
-              <h2 className="section-title">Modern software engineering services for serious builders.</h2>
+              <h2 className="section-title">Services that make your business easier to build and grow.</h2>
               <p className="section-description">
-                We focus on outcomes: reliable products, maintainable code, scalable infrastructure, and a smoother path from idea to production.
+                We do more than say “website development.” We break the work into clear services so you know exactly how we can help.
               </p>
             </div>
 
@@ -314,67 +427,41 @@ function App() {
           </div>
         </section>
 
-        <section id="approach" className="section-padding">
+        <section id="why-choose" className="section-padding">
           <div className="container split-section">
             <div>
-              <p className="eyebrow dark">Why us</p>
-              <h2 className="section-title text-left">Product-company delivery experience, applied to your business.</h2>
+              <p className="eyebrow dark">Why choose The Easy Build?</p>
+              <h2 className="section-title text-left">Reliable software delivery with clarity from start to finish.</h2>
               <p className="section-description text-left">
-                Our developers understand how product teams think: quality, speed, user value, maintainability, deployment, monitoring, and iteration. We do not just write code; we help you make better technical decisions and ship with confidence.
+                Prospects want to know why they should trust you. Our answer is simple: we focus on reliable software, clear communication, practical pricing, and long-term value instead of vague promises.
               </p>
-
-              <div className="feature-list">
-                <div className="feature-item">
-                  <div className="feature-icon">01</div>
-                  <div>
-                    <h3 className="feature-title">Quality without slow delivery</h3>
-                    <p className="feature-description">Pragmatic architecture, clean implementation, and focused scope so you move fast without creating technical debt from day one.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">02</div>
-                  <div>
-                    <h3 className="feature-title">Cloud-ready from the start</h3>
-                    <p className="feature-description">Deployment, monitoring, security basics, and cost awareness are planned with the product, not added as an afterthought.</p>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">03</div>
-                  <div>
-                    <h3 className="feature-title">Business-first consulting</h3>
-                    <p className="feature-description">We help clarify scope, choose the right technology approach, and translate business goals into a technical roadmap your team can trust.</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="approach-card">
-              <p className="card-kicker">Engineering principles</p>
-              <h3>Built for launch and ownership</h3>
+              <p className="card-kicker">What makes us different</p>
+              <h3>Simple process. Experienced engineers. Dependable delivery.</h3>
               <ul>
-                <li>Clear architecture and handover documentation</li>
-                <li>Readable code and maintainable service boundaries</li>
-                <li>Production deployment on AWS or the right cloud platform</li>
-                <li>Performance, reliability, and monitoring basics</li>
-                <li>Transparent milestones and communication</li>
+                {whyChoose.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
 
-        <section id="consulting" className="section-padding cloud-section">
+        <section className="section-padding cloud-section">
           <div className="container">
             <div className="cloud-content">
-              <p className="eyebrow">Consulting</p>
-              <h2 className="section-title light">Technical guidance before, during, and after the build.</h2>
+              <p className="eyebrow">Why clients work with us</p>
+              <h2 className="section-title light">Trust without fake testimonials.</h2>
               <p className="section-description light">
-                Not every engagement starts with development. We can help you validate the scope, review the architecture, plan infrastructure, optimize performance, or create a roadmap before you invest deeply.
+                We do not use made-up testimonials. Until real client stories are available, we explain the working principles clients can expect on every project.
               </p>
 
               <div className="consulting-grid">
-                {consultingAreas.map((area) => (
-                  <div className="consulting-pill" key={area}>
-                    {area}
+                {clientReasons.map((reason) => (
+                  <div className="consulting-pill" key={reason}>
+                    {reason}
                   </div>
                 ))}
               </div>
@@ -382,13 +469,13 @@ function App() {
           </div>
         </section>
 
-        <section className="section-padding bg-gray-50">
+        <section id="process" className="section-padding bg-gray-50">
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow dark">Process</p>
-              <h2 className="section-title">A simple path from idea to production.</h2>
+              <h2 className="section-title">Our process makes the work predictable.</h2>
               <p className="section-description">
-                Every project needs momentum and control. Our process keeps the work clear, measurable, and ready for real users.
+                People trust companies when they understand how work will be done. These are the steps we use to reduce confusion and keep projects moving.
               </p>
             </div>
 
@@ -405,19 +492,86 @@ function App() {
         </section>
 
         <section className="section-padding">
-          <div className="container split-section reverse">
-            <div className="stack-card">
-              {capabilities.map((capability) => (
-                <span key={capability}>{capability}</span>
-              ))}
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Industries</p>
+              <h2 className="section-title">Industries we can serve.</h2>
+              <p className="section-description">
+                Every industry has different workflows, customers, and constraints. We adapt the build around the business context.
+              </p>
             </div>
 
+            <div className="pill-grid">
+              {industries.map((industry) => (
+                <div className="industry-pill" key={industry}>
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="founder" className="section-padding bg-gray-50">
+          <div className="container split-section">
             <div>
-              <p className="eyebrow dark">Technology</p>
-              <h2 className="section-title text-left">Technology choices should serve the product, not the other way around.</h2>
+              <p className="eyebrow dark">Meet the founder</p>
+              <h2 className="section-title text-left">Built from real software delivery experience.</h2>
               <p className="section-description text-left">
-                We can build with the technology your product requires or help you choose the right stack from scratch. The decision depends on your business goals, performance needs, budget, hiring plans, infrastructure, timeline, and long-term ownership.
+                The Easy Build was started with a simple belief: building software should be easier for business owners. The goal is to bring enterprise and product-engineering discipline into a clear, cost-effective, and approachable service for startups and growing businesses.
               </p>
+            </div>
+
+            <div className="founder-card">
+              <p className="card-kicker">Founder focus</p>
+              <h3>Reliable software, clear communication, and long-term relationships.</h3>
+              <ul>
+                <li>Experience building enterprise-style software and product workflows</li>
+                <li>Ability to work across modern web, backend, cloud, and automation needs</li>
+                <li>Motivation to make software delivery less confusing for businesses</li>
+                <li>Focus on transparent milestones, quality, affordability, and support</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Featured projects</p>
+              <h2 className="section-title">Example projects we can build.</h2>
+              <p className="section-description">
+                These are demonstration project categories, not fake client claims. As The Easy Build grows, this section can be replaced with real client projects and measurable outcomes.
+              </p>
+            </div>
+
+            <div className="project-grid">
+              {featuredProjects.map((project) => (
+                <article className="project-card" key={project.title}>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Technical trust</p>
+              <h2 className="section-title">Technology explained through business outcomes.</h2>
+              <p className="section-description">
+                Business owners care less about technology names and more about what the technology makes possible.
+              </p>
+            </div>
+
+            <div className="trust-grid">
+              {technicalTrust.map((item) => (
+                <article className="trust-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -444,17 +598,17 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <p className="eyebrow dark">Start a conversation</p>
-              <h2 className="section-title">Tell us what you want to build.</h2>
+              <h2 className="section-title">Get a free consultation or quote.</h2>
               <p className="section-description">
-                Share your idea, current challenge, or technical question. We will respond within 24 hours with the next best step.
+                Share your idea, current challenge, or website requirement. We will respond within 24 hours with the next best step.
               </p>
             </div>
 
             <div className="contact-grid">
               <div className="contact-panel">
-                <h3>Book a free project consultation</h3>
+                <h3>Building software should not feel confusing.</h3>
                 <p>
-                  Use this for software development, websites, cloud infrastructure, architecture consulting, or performance improvements.
+                  Use this form for websites, custom software, e-commerce, automation, maintenance, cloud deployment, or technical consulting.
                 </p>
 
                 <div className="contact-info-list">
@@ -468,7 +622,7 @@ function App() {
                   </div>
                   <div className="contact-info-item">
                     <span>Best for</span>
-                    <strong>MVPs, websites, APIs, AWS, cloud infra, consulting</strong>
+                    <strong>Websites, software, automation, maintenance, cloud, consulting</strong>
                   </div>
                 </div>
               </div>
@@ -526,12 +680,12 @@ function App() {
                       required
                       rows="5"
                       className="form-input resize-none"
-                      placeholder="Tell us about your product, website, backend, cloud infrastructure, timeline, or consulting need..."
+                      placeholder="Tell us about your website, software idea, business process, timeline, budget range, or support need..."
                     />
                   </div>
 
                   <button type="submit" disabled={isSubmitting} className="submit-button">
-                    {isSubmitting ? 'Sending...' : 'Request Free Consultation'}
+                    {isSubmitting ? 'Sending...' : 'Get Free Consultation'}
                   </button>
 
                   {submitStatus && (
@@ -549,10 +703,10 @@ function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <div>
-            <div className="footer-brand">theEasy Build</div>
-            <p>High-quality software, websites, cloud infrastructure, and consulting.</p>
+            <div className="footer-brand">The Easy Build</div>
+            <p>Software development made easy with clear communication, experienced engineers, and dependable delivery.</p>
           </div>
-          <p>© 2026 theEasy Build. All rights reserved.</p>
+          <p>© 2026 The Easy Build. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -127,8 +127,7 @@ main,
   @apply mt-10 flex max-w-3xl flex-wrap gap-3;
 }
 
-.hero-stack span,
-.stack-card span {
+.hero-stack span {
   @apply rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm;
 }
 
@@ -289,11 +288,13 @@ main,
   @apply leading-relaxed text-slate-600;
 }
 
-.approach-card {
+.approach-card,
+.founder-card {
   @apply rounded-3xl bg-slate-950 p-8 text-white sm:p-10;
 }
 
-.approach-card h3 {
+.approach-card h3,
+.founder-card h3 {
   @apply mb-6 text-3xl font-bold tracking-tight;
 }
 
@@ -301,15 +302,18 @@ main,
   @apply mb-3 text-sm font-bold uppercase tracking-[0.2em] text-blue-300;
 }
 
-.approach-card ul {
+.approach-card ul,
+.founder-card ul {
   @apply space-y-4;
 }
 
-.approach-card li {
+.approach-card li,
+.founder-card li {
   @apply list-none border-b border-white/10 pb-4 text-slate-200;
 }
 
-.approach-card li:last-child {
+.approach-card li:last-child,
+.founder-card li:last-child {
   @apply border-b-0 pb-0;
 }
 
@@ -332,7 +336,7 @@ main,
 
 /* Process */
 .process-grid {
-  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-4;
+  @apply grid gap-6 md:grid-cols-2 xl:grid-cols-4;
 }
 
 .process-card {
@@ -351,13 +355,33 @@ main,
   @apply leading-relaxed text-slate-600;
 }
 
-/* Stack */
-.stack-card {
-  @apply flex flex-wrap gap-3 rounded-3xl bg-slate-950 p-8 sm:p-10;
+/* Industries, Projects, and Trust */
+.pill-grid {
+  @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4;
 }
 
-.stack-card span {
-  @apply border-slate-700 bg-white/5 text-slate-100;
+.industry-pill {
+  @apply rounded-2xl border border-slate-200 bg-white p-5 text-center text-lg font-bold text-slate-800;
+}
+
+.project-grid,
+.trust-grid {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.project-card,
+.trust-card {
+  @apply rounded-3xl border border-slate-200 bg-white p-7;
+}
+
+.project-card h3,
+.trust-card h3 {
+  @apply mb-3 text-2xl font-bold text-slate-950;
+}
+
+.project-card p,
+.trust-card p {
+  @apply leading-relaxed text-slate-600;
 }
 
 /* FAQ */
