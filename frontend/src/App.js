@@ -3,6 +3,136 @@ import './App.css';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqgrnnl';
 
+const services = [
+  {
+    title: 'Custom Software Development',
+    description:
+      'Product-grade SaaS platforms, internal tools, dashboards, and business applications built for real workflows, clean ownership, and long-term maintainability.',
+    points: ['SaaS MVPs', 'Admin portals', 'Workflow automation'],
+    accent: 'bg-blue-100 text-blue-700'
+  },
+  {
+    title: 'Modern Website Development',
+    description:
+      'Fast, responsive, SEO-ready websites and web applications that communicate trust, load quickly, and turn visitors into qualified leads.',
+    points: ['Business websites', 'Landing pages', 'SEO foundations'],
+    accent: 'bg-indigo-100 text-indigo-700'
+  },
+  {
+    title: 'Backend & API Engineering',
+    description:
+      'Reliable backend systems, integrations, APIs, event-driven services, and database-backed platforms using the technology stack that best fits your product.',
+    points: ['API platforms', 'Integrations', 'Scalable services'],
+    accent: 'bg-cyan-100 text-cyan-700'
+  },
+  {
+    title: 'Cloud Infrastructure Consulting',
+    description:
+      'Cloud architecture, deployment pipelines, containerized services, monitoring, scaling, and cost-conscious infrastructure across AWS or any cloud platform your product needs.',
+    points: ['AWS consulting', 'Any cloud infra', 'Monitoring setup'],
+    accent: 'bg-emerald-100 text-emerald-700'
+  },
+  {
+    title: 'Architecture Consulting',
+    description:
+      'Technical guidance for stack selection, architecture review, cloud readiness, performance, security basics, and migration planning.',
+    points: ['Tech stack review', 'System design', 'Cloud strategy'],
+    accent: 'bg-purple-100 text-purple-700'
+  },
+  {
+    title: 'Performance & Reliability',
+    description:
+      'Improve slow products, unstable systems, and expensive cloud setups with profiling, caching, database tuning, and operational best practices.',
+    points: ['Speed audits', 'Cost optimization', 'Reliability fixes'],
+    accent: 'bg-orange-100 text-orange-700'
+  }
+];
+
+const capabilities = [
+  'Custom Software',
+  'Website Design',
+  'Web Applications',
+  'APIs',
+  'Backend Systems',
+  'Cloud Infrastructure',
+  'AWS Consulting',
+  'DevOps',
+  'Databases',
+  'Integrations',
+  'MVPs',
+  'Technical Consulting'
+];
+
+const proofPoints = [
+  {
+    value: 'Product mindset',
+    label: 'Engineers with product-company delivery experience'
+  },
+  {
+    value: 'Flexible stack',
+    label: 'We choose technology around your product, team, budget, and future roadmap'
+  },
+  {
+    value: 'End-to-end',
+    label: 'Architecture, build, launch, cloud, and support'
+  }
+];
+
+const processSteps = [
+  {
+    title: 'Discover',
+    description:
+      'We map your business goal, user flows, data needs, integrations, and launch constraints before writing code.'
+  },
+  {
+    title: 'Architect',
+    description:
+      'We choose the right technology approach, define the system boundaries, plan cloud infrastructure, and reduce delivery risk early.'
+  },
+  {
+    title: 'Build',
+    description:
+      'We ship clean, maintainable features with pragmatic reviews, reusable components, and production-aware engineering.'
+  },
+  {
+    title: 'Launch & Improve',
+    description:
+      'We deploy, monitor, document, hand over, and continue improving performance, reliability, and conversion.'
+  }
+];
+
+const consultingAreas = [
+  'MVP scope and technical roadmap',
+  'AWS or cloud architecture and deployment strategy',
+  'Backend architecture review',
+  'API and integration planning',
+  'Performance, database, and cloud cost review',
+  'Product engineering process improvements'
+];
+
+const faqs = [
+  {
+    question: 'What kind of clients are the best fit?',
+    answer:
+      'Startups, founders, small teams, and growing businesses that need high-quality websites, web applications, backend systems, cloud infrastructure, or technical consulting.'
+  },
+  {
+    question: 'Do you only build websites?',
+    answer:
+      'No. Websites are one offering, but the core focus is high-quality software: custom platforms, APIs, backend services, infrastructure, internal tools, and product consulting.'
+  },
+  {
+    question: 'Which technologies do you work with?',
+    answer:
+      'We are technology-flexible. We can work with the stack your product needs or advise on the best stack based on performance, budget, hiring, maintenance, and cloud requirements.'
+  },
+  {
+    question: 'Can you help before development starts?',
+    answer:
+      'Yes. We can help with discovery, architecture, cloud planning, scope definition, MVP roadmap, performance review, and technical decision-making.'
+  }
+];
+
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,18 +163,18 @@ function App() {
         },
         body: JSON.stringify({
           ...formData,
-          message: `*New lead from theEasy Build*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Query:* ${formData.query}`
+          message: `*New lead from theEasy Build*\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Contact:* ${formData.contact || 'N/A'}\n*Project:* ${formData.query}`
         })
       });
 
       if (response.ok) {
         setSubmitStatus({
           type: 'success',
-          message: 'Your message was sent successfully. We will reach out soon.'
+          message: 'Your message was sent successfully. We will reach out within 24 hours.'
         });
         setFormData({ name: '', email: '', contact: '', query: '' });
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         setSubmitStatus({
           type: 'error',
           message: errorData.error || 'Unable to send message right now. Please try again later.'
@@ -62,379 +192,357 @@ function App() {
 
   return (
     <div className="App">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                theEasy Build
-              </div>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#home" className="nav-link">Home</a>
-              <a href="#services" className="nav-link">Services</a>
-              <a href="#features" className="nav-link">Features</a>
-              <a href="#contact" className="nav-link">Contact</a>
-            </div>
+      <nav className="site-nav">
+        <div className="container nav-inner">
+          <a href="#home" className="brand" aria-label="theEasy Build home">
+            theEasy Build
+          </a>
+          <div className="nav-links">
+            <a href="#services" className="nav-link">Services</a>
+            <a href="#approach" className="nav-link">Approach</a>
+            <a href="#consulting" className="nav-link">Consulting</a>
+            <a href="#contact" className="nav-link nav-cta">Free Consultation</a>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-background">
-          <img 
-            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjb2Rpbmd8ZW58MHx8fGJsdWV8MTc0OTk3NTQzOXww&ixlib=rb-4.1.0&q=85"
-            alt="Web Development"
-            className="hero-bg-image"
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        <div className="hero-content">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-            <div className="text-center">
+      <main>
+        <section id="home" className="hero-section">
+          <div className="hero-background">
+            <img
+              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85"
+              alt="Modern software engineering workspace"
+              className="hero-bg-image"
+            />
+            <div className="hero-overlay"></div>
+          </div>
+
+          <div className="container hero-content">
+            <div className="hero-copy">
+              <p className="eyebrow">Product-company engineers for modern software delivery</p>
               <h1 className="hero-title">
-                Custom Web Development & IT Services
-                <span className="hero-subtitle">For Startups and Growing Businesses</span>
+                Ship high-quality software, websites, and cloud infrastructure faster.
               </h1>
               <p className="hero-description">
-                We create fast, secure, and SEO-friendly websites, web applications, and digital solutions that help businesses attract clients, improve operations, and grow online.
+                We help startups and growing businesses design, build, and launch reliable products using the right technology for the job. From product websites and custom software to backend systems, AWS consulting, and cloud infrastructure, we bring a product engineering mindset to every engagement.
               </p>
+
               <div className="hero-buttons">
                 <a href="#contact" className="btn-primary">
-                  Start Your Project
-                  <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+                  Book a Free Consultation
+                  <span aria-hidden="true">-&gt;</span>
                 </a>
                 <a href="#services" className="btn-white">
-                  View Services
+                  Explore Services
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="floating-elements">
-          <div className="float-element float-1"></div>
-          <div className="float-element float-2"></div>
-          <div className="float-element float-3"></div>
-        </div>
-      </section>
 
-      {/* Services Section */}
-      <section id="services" className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="section-title">Web Development & IT Services</h2>
-            <p className="section-description">
-              From custom business websites to scalable web applications, we deliver modern technology solutions tailored to your goals.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="service-card">
-              <div className="service-icon bg-blue-100">
-                <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
+              <div className="hero-stack" aria-label="Core capabilities">
+                {capabilities.slice(0, 8).map((capability) => (
+                  <span key={capability}>{capability}</span>
+                ))}
               </div>
-              <h3 className="service-title">Web Applications</h3>
-              <p className="service-description">
-                Custom web applications built with Python (Django/FastAPI), Java (Spring), Node.js, Go (Gin/Echo), and Rust (Actix-web). From simple websites to complex enterprise solutions.
-              </p>
             </div>
-            <div className="service-card">
-              <div className="service-icon bg-purple-100">
-                <svg className="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
-                </svg>
-              </div>
-              <h3 className="service-title">Static Websites</h3>
-              <p className="service-description">
-                Lightning-fast static websites using modern frameworks like Next.js, Gatsby, Hugo, and Astro. Perfect for business websites, portfolios, and blogs with SEO optimization.
-              </p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon bg-green-100">
-                <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="service-title">Enterprise Solutions</h3>
-              <p className="service-description">
-                Scalable enterprise applications with microservices architecture, API development, database design, and cloud integration for growing businesses.
-              </p>
-            </div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div className="service-card">
-              <div className="service-icon bg-orange-100">
-                <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="service-title">API Development</h3>
-              <p className="service-description">
-                RESTful and GraphQL APIs built with robust authentication, rate limiting, and comprehensive documentation. Microservices architecture for scalability.
-              </p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon bg-pink-100">
-                <svg className="h-8 w-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4" />
-                </svg>
-              </div>
-              <h3 className="service-title">Database Solutions</h3>
-              <p className="service-description">
-                Database design and optimization for PostgreSQL, MySQL, MongoDB, and Redis. Data migration, performance tuning, and backup strategies.
-              </p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon bg-teal-100">
-                <svg className="h-8 w-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="service-title">Performance Optimization</h3>
-              <p className="service-description">
-                Website speed optimization, CDN integration, caching strategies, and performance monitoring to ensure lightning-fast user experiences.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Features Section */}
-      <section id="features" className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="hero-panel" aria-label="Service highlights">
+              <div className="panel-label">What we help you ship</div>
+              <div className="panel-list">
+                <div>
+                  <strong>Websites that convert</strong>
+                  <span>Modern, fast, SEO-ready business sites.</span>
+                </div>
+                <div>
+                  <strong>Custom software products</strong>
+                  <span>MVPs, dashboards, portals, and internal tools.</span>
+                </div>
+                <div>
+                  <strong>Cloud-native backends</strong>
+                  <span>APIs, services, databases, CI/CD, AWS, and cloud infrastructure.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="proof-strip" aria-label="Why clients choose theEasy Build">
+          <div className="container proof-grid">
+            {proofPoints.map((item) => (
+              <div className="proof-item" key={item.value}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="section-padding bg-gray-50">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Services</p>
+              <h2 className="section-title">Modern software engineering services for serious builders.</h2>
+              <p className="section-description">
+                We focus on outcomes: reliable products, maintainable code, scalable infrastructure, and a smoother path from idea to production.
+              </p>
+            </div>
+
+            <div className="services-grid">
+              {services.map((service) => (
+                <article className="service-card" key={service.title}>
+                  <div className={`service-icon ${service.accent}`}>
+                    <span>{service.title.charAt(0)}</span>
+                  </div>
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.description}</p>
+                  <ul className="service-points">
+                    {service.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="approach" className="section-padding">
+          <div className="container split-section">
             <div>
-              <h2 className="section-title text-left">Why Choose Us?</h2>
-              <p className="section-description text-left mb-8">
-                We combine creativity, reliable engineering, and SEO-focused strategy to deliver digital experiences that perform.
+              <p className="eyebrow dark">Why us</p>
+              <h2 className="section-title text-left">Product-company delivery experience, applied to your business.</h2>
+              <p className="section-description text-left">
+                Our developers understand how product teams think: quality, speed, user value, maintainability, deployment, monitoring, and iteration. We do not just write code; we help you make better technical decisions and ship with confidence.
               </p>
-              <div className="space-y-6">
+
+              <div className="feature-list">
                 <div className="feature-item">
-                  <div className="feature-icon bg-blue-100">
-                    <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                  </div>
+                  <div className="feature-icon">01</div>
                   <div>
-                    <h4 className="feature-title">Highly Responsive Design</h4>
-                    <p className="feature-description">Mobile-first approach ensuring perfect experience across all devices and screen sizes</p>
+                    <h3 className="feature-title">Quality without slow delivery</h3>
+                    <p className="feature-description">Pragmatic architecture, clean implementation, and focused scope so you move fast without creating technical debt from day one.</p>
                   </div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-icon bg-purple-100">
-                    <svg className="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                    </svg>
-                  </div>
+                  <div className="feature-icon">02</div>
                   <div>
-                    <h4 className="feature-title">Cloud Deployment</h4>
-                    <p className="feature-description">Seamless deployment on AWS, Google Cloud, or Azure with automated CI/CD pipelines</p>
+                    <h3 className="feature-title">Cloud-ready from the start</h3>
+                    <p className="feature-description">Deployment, monitoring, security basics, and cost awareness are planned with the product, not added as an afterthought.</p>
                   </div>
                 </div>
                 <div className="feature-item">
-                  <div className="feature-icon bg-green-100">
-                    <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                    </svg>
-                  </div>
+                  <div className="feature-icon">03</div>
                   <div>
-                    <h4 className="feature-title">Low-Cost Maintenance</h4>
-                    <p className="feature-description">Efficient architecture and ongoing support plans that minimize operational costs</p>
+                    <h3 className="feature-title">Business-first consulting</h3>
+                    <p className="feature-description">We help clarify scope, choose the right technology approach, and translate business goals into a technical roadmap your team can trust.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1593720219128-218edc93bdc0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8Ymx1ZXwxNzQ5OTc1NDM0fDA&ixlib=rb-4.1.0&q=85"
-                alt="Development Process"
-                className="features-image"
-              />
-              <div className="features-overlay"></div>
+
+            <div className="approach-card">
+              <p className="card-kicker">Engineering principles</p>
+              <h3>Built for launch and ownership</h3>
+              <ul>
+                <li>Clear architecture and handover documentation</li>
+                <li>Readable code and maintainable service boundaries</li>
+                <li>Production deployment on AWS or the right cloud platform</li>
+                <li>Performance, reliability, and monitoring basics</li>
+                <li>Transparent milestones and communication</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="section-padding bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="section-title">Get In Touch</h2>
-            <p className="section-description">
-              Ready to bring your vision to life? Let's discuss your project!
-            </p>
+        <section id="consulting" className="section-padding cloud-section">
+          <div className="container">
+            <div className="cloud-content">
+              <p className="eyebrow">Consulting</p>
+              <h2 className="section-title light">Technical guidance before, during, and after the build.</h2>
+              <p className="section-description light">
+                Not every engagement starts with development. We can help you validate the scope, review the architecture, plan infrastructure, optimize performance, or create a roadmap before you invest deeply.
+              </p>
+
+              <div className="consulting-grid">
+                {consultingAreas.map((area) => (
+                  <div className="consulting-pill" key={area}>
+                    {area}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Info */}
+        </section>
+
+        <section className="section-padding bg-gray-50">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Process</p>
+              <h2 className="section-title">A simple path from idea to production.</h2>
+              <p className="section-description">
+                Every project needs momentum and control. Our process keeps the work clear, measurable, and ready for real users.
+              </p>
+            </div>
+
+            <div className="process-grid">
+              {processSteps.map((step, index) => (
+                <article className="process-card" key={step.title}>
+                  <span className="process-number">{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container split-section reverse">
+            <div className="stack-card">
+              {capabilities.map((capability) => (
+                <span key={capability}>{capability}</span>
+              ))}
+            </div>
+
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Start Something Great</h3>
-              <p className="text-lg text-gray-600 mb-8">
-                Whether you need a simple website or a complex web application, we're here to help you succeed.
+              <p className="eyebrow dark">Technology</p>
+              <h2 className="section-title text-left">Technology choices should serve the product, not the other way around.</h2>
+              <p className="section-description text-left">
+                We can build with the technology your product requires or help you choose the right stack from scratch. The decision depends on your business goals, performance needs, budget, hiring plans, infrastructure, timeline, and long-term ownership.
               </p>
-              
-              <div className="space-y-6">
-                <div className="contact-info-item">
-                  <div className="contact-icon bg-blue-100">
-                    <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-gray-50">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">FAQ</p>
+              <h2 className="section-title">Questions clients ask before starting.</h2>
+            </div>
+
+            <div className="faq-grid">
+              {faqs.map((faq) => (
+                <article className="faq-card" key={faq.question}>
+                  <h3>{faq.question}</h3>
+                  <p>{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section-padding contact-section">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow dark">Start a conversation</p>
+              <h2 className="section-title">Tell us what you want to build.</h2>
+              <p className="section-description">
+                Share your idea, current challenge, or technical question. We will respond within 24 hours with the next best step.
+              </p>
+            </div>
+
+            <div className="contact-grid">
+              <div className="contact-panel">
+                <h3>Book a free project consultation</h3>
+                <p>
+                  Use this for software development, websites, cloud infrastructure, architecture consulting, or performance improvements.
+                </p>
+
+                <div className="contact-info-list">
+                  <div className="contact-info-item">
+                    <span>Email</span>
+                    <strong>rishabhkr@theeasybuild.com</strong>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Email Us</h4>
-                    <p className="text-gray-600">rishabhkr@theeasybuild.com </p>
+                  <div className="contact-info-item">
+                    <span>Response time</span>
+                    <strong>Within 24 hours</strong>
                   </div>
-                </div>
-                
-                <div className="contact-info-item">
-                  <div className="contact-icon bg-purple-100">
-                    <svg className="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Response Time</h4>
-                    <p className="text-gray-600">Within 24 hours</p>
-                  </div>
-                </div>
-                
-                <div className="contact-info-item">
-                  <div className="contact-icon bg-green-100">
-                    <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Free Consultation</h4>
-                    <p className="text-gray-600">Initial project discussion</p>
+                  <div className="contact-info-item">
+                    <span>Best for</span>
+                    <strong>MVPs, websites, APIs, AWS, cloud infra, consulting</strong>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Contact Form */}
-            <div className="contact-form-container">
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name" className="form-label">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input"
-                    placeholder="Your name"
-                  />
-                </div>
+              <div className="contact-form-container">
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="form-group">
+                    <label htmlFor="name" className="form-label">Name *</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="form-input"
+                      placeholder="Your name"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label htmlFor="email" className="form-label">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="email" className="form-label">Email *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="form-input"
+                      placeholder="you@company.com"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label htmlFor="contact" className="form-label">
-                    Contact (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    id="contact"
-                    name="contact"
-                    value={formData.contact}
-                    onChange={handleInputChange}
-                    className="form-input"
-                    placeholder="Phone number or additional contact info"
-                  />
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="contact" className="form-label">Phone or WhatsApp (optional)</label>
+                    <input
+                      type="text"
+                      id="contact"
+                      name="contact"
+                      value={formData.contact}
+                      onChange={handleInputChange}
+                      className="form-input"
+                      placeholder="Phone number or preferred contact"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label htmlFor="query" className="form-label">
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="query"
-                    name="query"
-                    value={formData.query}
-                    onChange={handleInputChange}
-                    required
-                    rows="5"
-                    className="form-input resize-none"
-                    placeholder="Tell us about your project, requirements, timeline, and any specific features you need..."
-                  />
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="query" className="form-label">What do you want to build or improve? *</label>
+                    <textarea
+                      id="query"
+                      name="query"
+                      value={formData.query}
+                      onChange={handleInputChange}
+                      required
+                      rows="5"
+                      className="form-input resize-none"
+                      placeholder="Tell us about your product, website, backend, cloud infrastructure, timeline, or consulting need..."
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="submit-button"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                      </svg>
-                    </>
+                  <button type="submit" disabled={isSubmitting} className="submit-button">
+                    {isSubmitting ? 'Sending...' : 'Request Free Consultation'}
+                  </button>
+
+                  {submitStatus && (
+                    <div className={`status-message ${submitStatus.type}`}>
+                      {submitStatus.message}
+                    </div>
                   )}
-                </button>
-
-                {submitStatus && (
-                  <div className={`status-message ${submitStatus.type}`}>
-                    {submitStatus.message}
-                  </div>
-                )}
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              theEasy Build
-            </div>
-            <p className="text-gray-400 mb-8">
-              Crafting digital excellence, one project at a time.
-            </p>
-            <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-400">
-                © 2025 theEasy Build. All rights reserved.
-              </p>
-            </div>
+      <footer className="footer">
+        <div className="container footer-inner">
+          <div>
+            <div className="footer-brand">theEasy Build</div>
+            <p>High-quality software, websites, cloud infrastructure, and consulting.</p>
           </div>
+          <p>© 2026 theEasy Build. All rights reserved.</p>
         </div>
       </footer>
     </div>
