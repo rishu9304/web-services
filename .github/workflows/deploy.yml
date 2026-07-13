@@ -24,12 +24,20 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install Chrome for pre-rendering
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+        id: setup-chrome
+
       - name: Install dependencies
         working-directory: frontend
         run: npm install
 
       - name: Build React app
         working-directory: frontend
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: npm run build
 
       - name: Add CNAME file

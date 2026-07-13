@@ -6,6 +6,29 @@ const http = require("http");
 const BUILD_DIR = path.join(__dirname, "build");
 const PORT = 45682;
 
+function findChrome() {
+  const candidates =
+    process.platform === "darwin"
+      ? [
+          "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary",
+          "/Applications/Chromium.app/Contents/MacOS/Chromium",
+        ]
+      : [
+          "/usr/bin/google-chrome-stable",
+          "/usr/bin/google-chrome",
+          "/usr/bin/chromium-browser",
+          "/usr/bin/chromium",
+        ];
+
+  if (process.env.CHROME_PATH) candidates.unshift(process.env.CHROME_PATH);
+
+  for (const p of candidates) {
+    if (fs.existsSync(p)) return p;
+  }
+  return null;
+}
+
 function serve() {
   return new Promise((resolve) => {
     const handler = (req, res) => {
@@ -23,11 +46,12 @@ function serve() {
 }
 
 async function prerender() {
-  const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  if (!fs.existsSync(chromePath)) {
-    console.log("Chrome not found, skipping pre-render.");
+  const chromePath = findChrome();
+  if (!chromePath) {
+    console.log("No Chrome/Chromium found, skipping pre-render. Set CHROME_PATH to override.");
     return;
   }
+  console.log(`Using browser: ${chromePath}`);
 
   const server = await serve();
   console.log(`Serving build at http://localhost:${PORT}`);
