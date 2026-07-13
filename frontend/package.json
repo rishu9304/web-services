@@ -13,6 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "node prerender.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,6 +38,14 @@
     "eslint-plugin-react": "7.37.4",
     "globals": "15.15.0",
     "postcss": "^8.4.49",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.17"
+  },
+  "reactSnap": {
+    "source": "build",
+    "crawl": false,
+    "include": ["/"],
+    "inlineCss": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 }
